@@ -1,0 +1,11 @@
+{% extends 'basic_bootstrap.html' %}
+{% block content %}
+{% load crispy_forms_tags%}
+<form method="POST">
+{% csrf_token %}
+{{form|crispy}}
+<input type="submit" value='post'>
+<input type="submit" value ='cancel' onclick="window.location.href="{% url 'main' %}"; return false;">
+</form>
+<a href="{% url 'forum' %}">see all others question</a>
+{% endblock content %}

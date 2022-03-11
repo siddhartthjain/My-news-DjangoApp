@@ -1,0 +1,19 @@
+{% extends 'basic_bootstrap.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="row">
+{% if messages %}
+{% for msg in messages %}
+<ul>
+<li>{{msg}}</li>
+</ul>
+{% endfor %}
+{% endif %}
+</div>
+<h1 style="text-aligh:center"> give your honest review</h1>
+<form method="post">
+{% csrf_token %}
+{{form|crispy}}
+<input type="submit" value="submit">
+</form>
+{% endblock content %}

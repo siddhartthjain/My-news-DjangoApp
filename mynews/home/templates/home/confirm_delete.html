@@ -1,0 +1,9 @@
+{% extends 'basic_bootstrap.html' %}
+{% block content %}
+<form method="POST">
+{% csrf_token %}
+<p>are you aure you want to delete this</p>
+<input type="submit" value='yes'>
+<input type="submit" onclick="window.location={% url 'main' %} ;return false;" value='cancel'>
+</form>
+{% endblock content %}

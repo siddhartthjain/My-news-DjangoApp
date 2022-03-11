@@ -1,0 +1,27 @@
+{% extends 'basic_bootstrap.html' %}
+{% block content %}
+{% load crispy_forms_tags%}
+<h1 style="text-align:center">{{question.question}}</h1>
+{% if user.is_authenticated %}
+<form method="POST" action="{% url 'create_comment' question.id %}">
+{% csrf_token %}
+{{form|crispy}}
+<input type="submit" value='post comment'>
+
+<input type="submit" value='all questions' onclick="window.location.href="{% url 'forum' %}"; return false;">
+</form>
+
+{% endif %}
+
+{% if comments %}
+{% for comment  in comments %}
+<p>{{comment.com}}</p>
+    {% if comment.user == user %}
+     <a href="{% url 'forum_comment_delete' comment.id %}">(Delete)</a>
+    {% endif %}
+{% endfor %}
+{% else %}
+<p>there are no comments on this question yet</p>
+{% endif %}
+
+{% endblock content %}

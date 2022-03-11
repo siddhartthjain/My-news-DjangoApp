@@ -1,0 +1,69 @@
+{% extends 'basic_bootstrap.html' %}
+{% block css %}{% load static %}<link rel="stylesheet" href="{% static 'home/basic.css' %}">{% endblock css %}
+
+{% block content %}
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+     {% load static %} <img src="{% static 'home/media/article1.jpg' %}" class="d-block w-100" alt="news image">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Mynews web app</h5>
+        <h3>Get your all news in short at one platform.</h3>
+      </div>
+    </div>
+    <div class="carousel-item">
+     {% load static %} <img src="{% static 'home/media/article2.jpg' %}" class="d-block w-100" alt="news image">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Get answered</h5>
+        <h3>ask question freely directly to our publishers</h3>
+      </div>
+    </div>
+    <div class="carousel-item">
+     {% load static %} <img src="{% static 'home/media/article3.jpg' %}" class="d-block w-100" alt="news image">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Verified</h5>
+        <h3>All news articles are made nt verifed publishers.</h3>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<br>
+<div class="row">
+<div class="col-sm-6">
+<div class="card" >
+  <img src="{% static 'home/media/create_image.jpg' %}" class="card-img-top" alt="create">
+  <div class="card-body">
+    <h5 class="card-title">create articles</h5>
+    <p class="card-text">Create a article.</p>
+    <a href="{% url 'create' %}" class="btn btn-primary">Go create</a>
+  </div>
+</div>
+
+<div class="card">
+  <img src="{% static 'home/media/view_image.jpg' %}" class="card-img-top" alt="view all articles">
+  <div class="card-body">
+    <h5 class="card-title">view news</h5>
+    <p class="card-text">get update with all latest news.</p>
+    <a href="{% url 'all' %}" class="btn btn-primary">Go view</a>
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock content %}
+
+
+

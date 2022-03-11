@@ -1,0 +1,21 @@
+{% extends 'basic_bootstrap.html' %}
+{% block content %}
+{% if  forums %}
+{% for question in forums %}
+<li style="list-style: none;">
+<div class="card">
+  <div class="card-body">
+   {{question.question}}
+  </div>
+<a class='btn' href={% url 'forum_detail' question.id %} roll='button'>give answer</a>
+
+  
+</div>
+
+
+</li>
+{% endfor %}
+{% else %}
+<h1>there are no question yet</h1>
+{% endif %}
+{% endblock content %}
